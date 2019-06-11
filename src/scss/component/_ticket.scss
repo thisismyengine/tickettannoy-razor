@@ -1,0 +1,71 @@
+/* //////////////////////////////////////////////////////////////////////////////// */
+/* ///////////////////////////////////////////////////////////////////// TICKET /// */
+/* //////////////////////////////////////////////////////////////////////////////// */
+
+/* --------------------------------------------------------------------- TICKET --- */
+/*  */
+
+section.ticket {
+    padding: 16px;
+    margin-bottom: 80px;
+    background-color: white;
+}
+
+
+body.page_buy section.ticket {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* ------------------------------------------------------------------- DROPDOWN --- */
+/*  */
+
+section.ticket .dropdown {
+    width: 256px;
+    margin-bottom: 16px;
+}
+
+/* --------------------------------------------------------------------- FOOTER --- */
+/*  */
+
+section.ticket footer {
+    display: flex;
+    padding-top: 16px;
+    margin-top: 16px;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: 1px solid $color_dark;
+}
+@media (max-width: $breakpoint_3) {
+    section.ticket footer {
+        justify-content: space-between;
+    }
+}
+section.ticket footer .subtotal {
+    width: 160px;
+    font-family: $family_display;
+    font-size: 20px;
+    line-height: 22px;
+    text-align: right;
+}
+@media (max-width: $breakpoint_3) {
+    section.ticket footer .subtotal {
+        width: auto;
+        text-align: left;
+    }
+}
+section.ticket footer .subtotal::before {
+    display: block;
+    content: 'Subtotal';
+    font-family: $family_default;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+section.ticket footer .action {
+    width: 240px;
+    text-align: right;
+}
+section.ticket footer .button {
+    display: inline-block;
+    background-color: $color_primary;
+}

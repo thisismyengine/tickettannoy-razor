@@ -1,0 +1,67 @@
+/* //////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////// FUNCTION /// */
+/* //////////////////////////////////////////////////////////////////////////////// */
+
+/* ----------------------------------------------------------------- BACKGROUND --- */
+/* extends contained backgrounds to be full width */
+
+@mixin background($children: true) {
+    &::before {
+        position: absolute;
+        z-index: 0;
+        top: 0;
+        left: 50%;
+        width: 100vw;
+        height: 100%;
+        content: '';
+        transform: translateX(-50%);
+        background: inherit;
+    }
+    @if $children {
+        & > * {
+            position: relative;
+            z-index: 1;
+        }
+    }
+}
+
+/* ---------------------------------------------------------------- PLACEHOLDER --- */
+/* sets appearance of input placeholder text */
+
+@mixin placeholder($color, $opacity) {
+   	&::-webkit-input-placeholder { 
+	  	color: $color;
+		opacity: $opacity !important;
+	}
+   	&:-moz-placeholder {
+		color: $color;
+		opacity: $opacity !important;
+	}
+   	&::-moz-placeholder {
+		color: $color;
+		opacity: $opacity !important;
+	}
+   	&:-ms-input-placeholder {
+		color: $color;
+		opacity: $opacity !important;
+	}
+	&::placeholder {
+		color: $color;
+		opacity: $opacity !important;
+	}
+}
+
+/* ----------------------------------------------------------------- NON-SELECT --- */
+/* stops item being selectable */
+
+@mixin nonselect() {
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+    
+    
+    

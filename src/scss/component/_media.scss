@@ -1,0 +1,88 @@
+/* //////////////////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////////// MEDIA /// */
+/* //////////////////////////////////////////////////////////////////////////////// */
+
+/* ---------------------------------------------------------------------- MEDIA --- */
+/* images and videos */
+
+.media {
+    overflow: hidden;
+    position: relative;
+    background-color: $color_light;
+}
+.media .image {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    -webkit-filter: grayscale(1);
+	-webkit-filter: grayscale(100%);
+	filter: gray;
+	filter: grayscale(100%);
+}
+article .media::before {
+    z-index: 2;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $color_primary;
+    transform: translateY(calc(12px - 100%));
+    opacity: 1;
+    transition: transform 400ms ease, opacity 400ms ease;
+}
+@media (max-width: $breakpoint_4) {
+    article .media::before { transform: translateY(calc(8px - 100%)); }
+}
+article:hover .media::before {
+    transform: translateY(0); 
+    opacity: 0.9;
+    transition: transform 200ms ease, opacity 200ms ease;
+}
+body.status_resize article .media::before { transition-duration: 0s; }
+article.category_club .media::before { background-color: $color_yellow; }
+article.category_culture .media::before { background-color: $color_green;; }
+article.category_festival .media::before { background-color: $color_blue; }
+article .media::after {
+    z-index: 3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    box-sizing: border-box;
+    width: 80px;
+    height: 80px;
+    padding-top: 35px;
+    border-radius: 50%;
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1;
+    vertical-align: middle;
+    background-color: $color_primary;
+    opacity: 0;
+    transition: opacity 200ms ease 0s;
+}
+article:hover .media::after { 
+    opacity: 1; 
+    transition: opacity 200ms ease 100ms;
+}
+article.event .media::after { content: 'Buy'; }
+article.promoter .media::after { content: 'Events'; }
+article.news .media::after { content: 'Read'; }
+article.category_club .media::after { background-color: $color_yellow; }
+article.category_culture .media::after { background-color: $color_green;; }
+article.category_festival .media::after { background-color: $color_blue; }
+
+
+
+
+

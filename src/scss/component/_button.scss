@@ -1,0 +1,36 @@
+/* //////////////////////////////////////////////////////////////////////////////// */
+/* ///////////////////////////////////////////////////////////////////// BUTTON /// */
+/* //////////////////////////////////////////////////////////////////////////////// */
+
+/* --------------------------------------------------------------------- BUTTON --- */
+/* button used in forms and other areas */
+
+.button {
+    display: block;
+    cursor: pointer;
+    @include nonselect();
+}
+.button {
+    height: 32px;
+    min-width: 48px;
+    border-radius: 16px;
+    padding: 1px 1em 0 1em;
+	min-width: 92px;
+    font-size: 14px;
+    line-height: 32px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: $color_light;
+    color: $color_dark;
+}
+.button.primary { background-color: $color_primary; }
+.button.secondary { background-color: $color_secondary; }
+.button.apple {
+    width: 212px;
+    height: 38px;
+    background-image: url('../gfx/apple.png');
+    background-size: contain;
+}
+
+

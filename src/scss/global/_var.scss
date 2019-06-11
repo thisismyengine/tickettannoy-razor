@@ -1,0 +1,41 @@
+/* //////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////// VAR /// */
+/* //////////////////////////////////////////////////////////////////////////////// */
+
+/* --------------------------------------------------------------------- COLOUR --- */
+/* common colour variables used across the site */
+
+$color_nav: #fafafa;
+$color_light: #f0f0f0;
+$color_form: #ebebeb;
+$color_grey: #828282;
+$color_highlight: #dcdcdc;
+$color_dark: #1e1e1e;
+$color_primary: #ff2ecc;
+$color_secondary: #b5fdd8;
+$color_contrast: #ddfff5;
+$color_yellow: #dcff55;
+$color_green: #66ff73;
+$color_blue: #66ffe0;
+
+/* ------------------------------------------------------------------ ANIMATION --- */
+/* animation keyframes */
+
+@keyframes hue {
+    0% { filter: hue-rotate(0deg); }
+    50% { filter: hue-rotate(72deg); }
+    100% { filter: hue-rotate(0deg); }
+}
+
+/* ----------------------------------------------------------------- BREAKPOINT --- */
+/* dimensions at which the styling changes via media query */
+
+$breakpoint_0: 1920px;
+$breakpoint_1: 1600px;
+$breakpoint_2: 1280px;
+$breakpoint_3: 960px;
+$breakpoint_4: 720px;
+$breakpoint_5: 640px;
+$breakpoint_6: 480px;
+
+

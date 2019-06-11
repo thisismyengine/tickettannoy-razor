@@ -1,0 +1,56 @@
+/* //////////////////////////////////////////////////////////////////////////////// */
+/* ///////////////////////////////////////////////////////////////////// OPTION /// */
+/* //////////////////////////////////////////////////////////////////////////////// */
+
+/* --------------------------------------------------------------------- OPTION --- */
+/*  */
+
+div.option {
+    padding: 16px;
+    margin-bottom: 40px;
+    align-items: center;
+    background-color: white;
+    border-radius: 1000px;
+}
+div.option > *:not(:last-child) {
+    margin-right: 12px;
+}
+
+/* --------------------------------------------------------------------- FILTER --- */
+/*  */
+
+div.option.filter { display: flex; }
+@media (max-width: $breakpoint_3) {
+    div.option.filter {
+        flex-wrap: wrap;
+        border-radius: 32px;
+    }
+    div.option.filter > *:not(:last-child) {
+        margin-right: 0;
+        margin-bottom: 12px;
+    }
+}
+div.option.filter > .button { min-width: initial; }
+@media (max-width: $breakpoint_3) {
+    div.option.filter > .submit {
+        margin-right: 0;
+        width: 100%;
+        margin-bottom: 0;
+    }
+    div.option.filter > .reset {
+        display: none;
+    }
+}
+body.category_club div.option.filter > .button { background-color: $color_yellow; }
+body.category_culture div.option.filter > .button { background-color: $color_green; }
+body.category_festival div.option.filter > .button { background-color: $color_blue; }
+
+/* -------------------------------------------------------------------- ACCOUNT --- */
+/*  */
+
+div.option.account {
+    display: inline-flex;
+}
+div.option.account .active {
+    background-color: $color_primary;
+}

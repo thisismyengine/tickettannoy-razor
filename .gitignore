@@ -1,0 +1,10 @@
+# dir
+dev/*
+src/css/*
+node_modules/*
+
+# file
+#
+
+# other
+!.gitkeep

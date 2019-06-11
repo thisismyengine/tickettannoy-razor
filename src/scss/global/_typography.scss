@@ -1,0 +1,66 @@
+/* //////////////////////////////////////////////////////////////////////////////// */
+/* ///////////////////////////////////////////////////////////////// TYPOGRAPHY /// */
+/* //////////////////////////////////////////////////////////////////////////////// */
+
+/* ------------------------------------------------------------------- TYPEFACE --- */
+/* fonts used on the site */
+
+@font-face {
+    font-family: 'maison_mono';
+    font-weight: normal;
+    font-style: normal;
+    src: url('../font/maisonneue_mono.woff2') format('woff2'),
+    url('../font/maisonneue_mono.woff') format('woff');
+}
+@font-face {
+    font-family: 'maison_display';
+    font-weight: normal;
+    font-style: normal;
+    src: url('../font/maisonneue_demi.woff2') format('woff2'),
+    url('../font/maisonneue_demi.woff') format('woff');
+}
+@font-face {
+    font-family: 'maison_display';
+    font-weight: bold;
+    font-style: normal;
+    src: url('../font/maisonneue_bold.woff2') format('woff2'),
+    url('../font/maisonneue_bold.woff') format('woff');
+}
+$family_default: ('maison_mono', monospace);
+$family_display: ('maison_display', Helvetica, Arial, sans-serif);
+
+/* -------------------------------------------------------------------- DEFAULT --- */
+/* document level text settings */
+
+:root { font-size: 16px; }
+html,
+body {
+    font-family: $family_default;
+    text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* -------------------------------------------------------------------- HEADING --- */
+/* sitewide heading settings */
+
+h1,
+h2 {
+    color: $color_dark;
+    font-family: $family_display;
+    line-height: 1;
+    text-transform: uppercase;
+}
+h1 {
+    font-size: 64px;
+    @media (max-width: $breakpoint_4) {
+        font-size: 48px;
+    }
+}
+h2 {
+    font-size: 36px;
+    @media (max-width: $breakpoint_4) {
+        font-size: 32px;
+    }
+}

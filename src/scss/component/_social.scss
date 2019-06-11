@@ -1,0 +1,35 @@
+/* //////////////////////////////////////////////////////////////////////////////// */
+/* ///////////////////////////////////////////////////////////////////// SOCIAL /// */
+/* //////////////////////////////////////////////////////////////////////////////// */
+
+/* --------------------------------------------------------------------- SOCIAL --- */
+/* links to social networks for sharing */
+
+.social { 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 92px;
+}
+.social a {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-image: url('../gfx/social.png');
+    background-size: 500% 300%;
+    background-repeat: no-repeat;
+}
+.social a.instagram { background-position: top left; }
+.social a.facebook { background-position: top; }
+.social a.twitter { background-position: top right; }
+@media (min-width: $breakpoint_4 + 1px) {
+    
+}
+@media (max-width: $breakpoint_4) {
+    header .social a.instagram { background-position: bottom left; }
+    header .social a.facebook { background-position: bottom; }
+    header .social a.twitter { background-position: bottom right; }
+}
+
+

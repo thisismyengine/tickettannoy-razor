@@ -1,0 +1,195 @@
+/* //////////////////////////////////////////////////////////////////////////////// */
+/* ///////////////////////////////////////////////////////////////////// TICKET /// */
+/* //////////////////////////////////////////////////////////////////////////////// */
+
+/* --------------------------------------------------------------------- TICKET --- */
+/* an individual ticket for a show */
+
+article.ticket {
+    display: flex;
+    padding: 16px;
+    justify-content: space-between;
+    font-family: $family_display;
+    background-color: white;
+}
+@media (max-width: $breakpoint_3) {
+    article.ticket {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+}
+article.ticket:nth-child(even) {
+    background-color: $color_nav;
+}
+
+/* --------------------------------------------------------------------- DETAIL --- */
+/*  */
+
+article.ticket .detail {
+    flex: 1;
+}
+@media (max-width: $breakpoint_3) {
+    article.ticket .detail {
+        margin-bottom: 24px;
+        flex-basis: 100%;
+    }
+}
+article.ticket .detail .name {
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+article.ticket .detail .meta {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+article.ticket .detail .info {
+    position: relative;
+    margin-right: 16px;
+    color: $color_grey;
+    text-decoration: underline;
+    cursor: pointer;
+}
+article.ticket .detail .info::before {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    width: 100vw;
+    max-width: 320px;
+    padding: 10px 12px;
+    margin-bottom: 12px;
+    color: white;
+    content: attr(data-title);
+    background-color: $color_dark;
+    border-radius: 2px;
+}
+article.ticket .detail .info::after {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    display: none;
+    width: 0;
+    height: 0;
+    margin-left: 16px;
+    content: '';
+    border: solid transparent;
+    border-color: rgba($color_dark, 0);
+    border-top-color: $color_dark;
+    border-width: 6px;
+    pointer-events: none;
+}
+article.ticket .detail .info:hover::before,
+article.ticket .detail .info:hover::after {
+    display: block;
+}
+article.ticket .detail .alert {
+    padding: 5px;
+    line-height: 1;
+    background-color: $color_primary;
+    border-radius: 2px;
+}
+article.ticket .detail .alert:not(:last-of-type) {
+    margin-right: 6px;
+}
+
+/* --------------------------------------------------------------------- AMOUNT --- */
+/*  */
+
+article.ticket .amount {
+    width: 160px;
+    text-align: right;
+}
+@media (max-width: $breakpoint_3) {
+    article.ticket .amount {
+        flex: 1;
+        text-align: unset;
+    }
+}
+
+/* ------------------------------------------------------------------- QUANTITY --- */
+/*  */
+
+article.ticket .quantity {
+    width: 240px;
+    margin-top: -4px;
+}
+@media (max-width: $breakpoint_3) {
+    article.ticket .quantity {
+        width: auto;
+    }
+}
+article.ticket .quantity div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+article.ticket .quantity input {
+    height: 24px;
+    width: 48px;
+    padding: 0 12px;
+    margin: 0;
+    font-family: inherit;
+    text-align: center;
+    background-color: transparent;
+    border: 0;
+}
+article.ticket .quantity a {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: $color_dark;
+    border-radius: 50%;
+    cursor: pointer;
+}
+article.ticket .quantity a.disabled {
+    background-color: $color_highlight;
+    cursor: auto;
+}
+article.ticket .quantity a:not(.disabled):hover {
+    color: $color_dark;
+    background-color: $color_primary;
+}
+article.ticket .quantity a::before {
+    position: relative;
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 24px;
+}
+article.ticket .quantity a.less::before {
+    content: '\2013';
+}
+article.ticket .quantity a.more::before {
+    top: 1px;
+    content: '\2b';
+}
+
+/* ---------------------------------------------------------------------- LABEL --- */
+/*  */
+
+article.ticket .label {
+    display: flex;
+    width: 240px;
+    align-items: center;
+    justify-content: flex-end;
+    letter-spacing: 0.03em;
+}
+@media (max-width: $breakpoint_3) {
+    article.ticket .label {
+        width: auto;
+    }
+}
+article.ticket .label span {
+    padding: 5px;
+    color: white;
+    font-size: 10px;
+    line-height: 1;
+    text-transform: uppercase;
+    background-color: $color_grey;
+    border-radius: 2px;
+}

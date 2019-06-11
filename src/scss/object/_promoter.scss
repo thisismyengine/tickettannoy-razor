@@ -1,0 +1,50 @@
+/* //////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////// PROMOTER /// */
+/* //////////////////////////////////////////////////////////////////////////////// */
+
+/* ------------------------------------------------------------------- PROMOTER --- */
+/* listing for an promoter */
+
+article.promoter { position: relative; }
+article.promoter a {
+    position: relative;
+    display: inline-block;
+    width: 100%; 
+    height: auto;
+    padding-bottom: 8px;
+}
+
+
+
+@media (max-width: $breakpoint_6 - 80px) {
+    article.promoter a { padding-bottom: 40px; }
+}
+
+/* ---------------------------------------------------------------------- IMAGE --- */
+/* image or other media */
+
+article.promoter .media {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/* ---------------------------------------------------------------------- TITLE --- */
+/* event title */
+
+article.promoter h3 {    
+    margin-top: 0.75em;
+    margin-bottom: 1.25em;
+    font-family: maison_display, 'sans-serif';
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+
+
+

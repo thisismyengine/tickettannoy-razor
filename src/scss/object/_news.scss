@@ -1,0 +1,100 @@
+/* //////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////// NEWS /// */
+/* //////////////////////////////////////////////////////////////////////////////// */
+
+/* ----------------------------------------------------------------------- NEWS --- */
+/* a news article item */
+
+article.news {
+    
+}
+
+/* 
+<article class="news category_club">
+        <a href="news.php?uri=news_uri">
+            <div class="media" style="background-image: url('lib/event_2.jpg');"></div>
+            <h2>Tobaco Dock: Halloween Drumcode 2018 Lineup Announced</h2>
+            <div class="meta">
+                <time datetime="2018-09-29" title="29.09.18">29.09.18</time>
+				<div class="cta"></div>
+			</div>
+        </a>    
+    </article>
+*/
+
+/* ---------------------------------------------------------------------- EVENT --- */
+/* listing for an event */
+
+article.news { position: relative; }
+article.news a {
+    position: relative;
+    display: inline-block;
+    width: 100%; 
+    height: auto;
+}
+article.news a::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: calc(((2/3) * 100%) + 12px);
+    display: block;
+    width: 30px;
+    height: 30px;
+
+    
+    background-image: url('../gfx/arrow.png');
+    background-repeat: no-repeat;
+    background-size: 300%;
+    background-position: top left;
+}
+
+@media (max-width: $breakpoint_6 - 80px) {
+    article.news a { padding-bottom: 40px; }
+}
+
+/* ---------------------------------------------------------------------- IMAGE --- */
+/* image or other media */
+
+article.news .media {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: calc((2/3) * 100%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/* ---------------------------------------------------------------------- TITLE --- */
+/* event title */
+
+article.news h3 {    
+    margin-top: 12px;
+    margin-bottom: 20px;
+    margin-right: 48px;
+    font-family: maison_display, 'sans-serif';
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+/* ----------------------------------------------------------------------- TIME --- */
+/* when is the event on */
+
+article.news time {
+    position: relative;
+    display: inline-block;
+    height: 1.2em;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+article.news time::after {
+    content: 'Read More';
+    margin-left: 1em;
+    color: $color_grey;
+}
+article.news:hover time::after { color: $color_primary; }
+
+
+

@@ -1,0 +1,110 @@
+/* //////////////////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////////// TABLE /// */
+/* //////////////////////////////////////////////////////////////////////////////// */
+
+/* ---------------------------------------------------------------------- TABLE --- */
+/*  */
+
+.table {
+    padding: 20px;
+    background-color: white;
+}
+
+table {
+    width: 100%;
+    font-family: $family_display;
+    text-align: left;
+    table-layout: fixed;
+}
+
+/* ------------------------------------------------------------------------- TD --- */
+/*  */
+
+table td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+table td:first-child {
+    padding-left: 20px;
+}
+table td:last-child {
+    padding-right: 20px;
+}
+
+/* ---------------------------------------------------------------------- THEAD --- */
+/*  */
+
+table thead {
+    font-weight: bold;
+}
+
+table thead::after {
+    display: block;
+    color: transparent;
+    content: '-';
+    line-height: 20px;
+}
+
+table thead td {
+    padding: 0 12px 4px;
+    border-bottom: 1px solid black;
+}
+
+/* ---------------------------------------------------------------------- TBODY --- */
+/*  */
+
+table tbody {
+    //
+}
+
+table tbody td {
+    padding: 14px 12px 12px;
+    background-color: $color_light;
+}
+
+table tbody tr:nth-child(even) td {
+    background-color: $color_nav;
+}
+
+table tbody tr:last-child td {
+    position: relative;
+    padding-bottom: 32px;
+}
+table tbody tr:last-child td::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 20px;
+    content: '';
+    background-color: white;
+    border-bottom: 1px solid black;
+}
+
+table tbody td a {
+    color: $color_grey;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+table tbody .action {
+    display: flex;
+    margin: 0 -12px;
+}
+table tbody .action .button {
+    margin: 0 6px;
+}
+
+/* ---------------------------------------------------------------------- TFOOT --- */
+/*  */
+
+table tfoot {
+    //
+}
+
+table tfoot td {
+    padding: 16px 12px 0;
+}

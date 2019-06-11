@@ -1,0 +1,66 @@
+/* //////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////// DOCUMENT /// */
+/* //////////////////////////////////////////////////////////////////////////////// */
+
+/* ----------------------------------------------------------------------- BODY --- */
+/* document body definition of default styles */
+
+html { height: 100%; }
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    font-family: $family_default;
+    background-color: white;
+    color: $color_dark;
+    overflow-x: hidden;
+}
+
+/* --------------------------------------------------------------------- COMMON --- */
+/* common sizing rules for all immediate children */
+
+body > header,
+main,
+body > footer {
+    position: relative;
+    margin: 0 auto;
+    width: 1344px;
+}
+@media (max-width: $breakpoint_0) {
+    body > header,
+    main,
+    body > footer { width: calc(((224/640) * (100vw - 1280px)) + 1120px); }
+}
+@media (max-width: $breakpoint_2) {
+    body > header,
+    main,
+    body > footer { width: 87.5vw; }
+}
+@media (max-width: $breakpoint_5) {
+    body > header,
+    main,
+    body > footer { width: 560px;  }
+}
+@media (max-width: $breakpoint_5 - 20px) {
+    body > header { width: calc(100% - 60px); }
+}
+@media (max-width: $breakpoint_5 - 40px) {
+    main,
+    body > footer { width: calc(100% - 40px); }
+}
+
+/* ----------------------------------------------------------------------- CLIP --- */
+/* universal clip mask for animation masking */
+
+/*
+.clip {
+    clip: rect(auto auto auto auto);
+	overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+*/
+

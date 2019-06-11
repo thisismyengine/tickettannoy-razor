@@ -1,0 +1,98 @@
+/* //////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////// LOGO /// */
+/* //////////////////////////////////////////////////////////////////////////////// */
+
+/* ----------------------------------------------------------------------- LOGO --- */
+/* ticket tannopy logo and text */
+
+.logo { 
+    z-index: 2;
+    position: relative;
+    display: block;
+    @include nonselect();
+    cursor: pointer;
+    pointer-events: all;
+}
+.logo::before {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-image: url('../gfx/logo.png');
+    background-repeat: no-repeat;
+}
+@media (min-width: $breakpoint_4 + 1px) {
+    .logo {
+        min-width: 186px;
+		width: auto;
+        height: 48px;
+        margin-left: -92px;
+        padding-left: 92px;
+        padding-top: 4px;
+        font-family: $family_display;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 20px;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        background-color: inherit;
+        transition: margin-left 200ms ease;
+    }
+    .logo::before { 
+		width: 186px;
+		background-size: 100% 300%;
+	}
+    header .logo::before { background-position: top left;  }
+    footer .logo::before { background-position: bottom left; }
+    .logo::after {
+        z-index: -1;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 86px;
+        display: block;
+        width: calc(100% - 86px);
+        height: 100%;
+        background-color: inherit; 
+    }
+    .logo:empty::after { content: none; }
+}
+@media (min-width: $breakpoint_4 + 1px) and (max-width: $breakpoint_2 + 86px) {
+    .logo { margin-left: 0;  }
+}
+@media (min-width: $breakpoint_4 + 1px) and (max-width: $breakpoint_3) {
+    .logo { 
+        //width: 9.375vw;
+        //height: 5vw;
+        font-size: 0;
+        line-height: 0;
+        color: transparent;
+    
+    }
+}
+@media (max-width: $breakpoint_4) {
+    .logo {
+        width: 12.5vw; 
+        height: calc((48/720) * 100vw);
+        font-size: 0;
+        line-height: 0;
+        color: transparent;
+    }
+    .logo::before { 
+        z-index: 5;
+        background-size: calc((186/90) * 100%) 300%;
+        background-position: -2.222% 0px; 
+    }
+}
+@media (max-width: $breakpoint_6) {
+    .logo {
+        width: 60px;
+        height: 32px; 
+    }
+}
+
+

@@ -1,0 +1,108 @@
+/* //////////////////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////////// EVENT /// */
+/* //////////////////////////////////////////////////////////////////////////////// */
+
+/* ---------------------------------------------------------------------- EVENT --- */
+/* listing for an event */
+
+article.event { position: relative; }
+article.event a {
+    position: relative;
+    display: inline-block;
+    width: 100%; 
+    height: auto;
+    //padding-bottom: 8px;
+}
+article.event a::after {
+    content: 'Buy';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: block;
+    width: 64px;
+    height: 32px;
+    border-radius: 16px;
+    padding-top: 10px;
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1;
+    vertical-align: middle;
+    background-color: $color_primary;
+}
+@media (max-width: $breakpoint_5) {
+    article.event a {
+        padding-bottom: 0;
+    }
+    article.event a::after {
+        display: none;
+    }
+}
+article.event.category_club a::after { background-color: $color_yellow; }
+article.event.category_culture a::after { background-color: $color_green;; }
+article.event.category_festival a::after { background-color: $color_blue; }
+@media (max-width: $breakpoint_6 - 80px) {
+    article.event a { padding-bottom: 40px; }
+    article.event a::after {
+        right: auto;
+        left: 0;
+    }
+}
+
+/* ---------------------------------------------------------------------- IMAGE --- */
+/* image or other media */
+
+article.event .media {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/* ---------------------------------------------------------------------- TITLE --- */
+/* event title */
+
+article.event h3 {    
+    margin-top: 0.75em;
+    margin-bottom: 1.25em;
+    font-family: maison_display, 'sans-serif';
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+/* ----------------------------------------------------------------------- TIME --- */
+/* when is the event on */
+
+article.event time {
+    position: relative;
+    display: inline-block;
+    height: 32px;
+    font-size: 14px;
+    text-transform: uppercase; //background: lightgreen;
+}
+article.event time:last-child { height: 25px; }
+
+/* ------------------------------------------------------------------- LOCATION --- */
+/* where is the event on */
+
+article.event .location {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    display: inline-block;
+    //height: 2.4em;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: $color_grey;
+}
+@media (max-width: $breakpoint_5) {
+    article.event .location {
+        bottom: 40px;
+    }
+}
+
+

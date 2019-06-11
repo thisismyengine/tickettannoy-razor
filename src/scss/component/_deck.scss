@@ -1,0 +1,93 @@
+/* //////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////// DECK /// */
+/* //////////////////////////////////////////////////////////////////////////////// */
+
+/* ----------------------------------------------------------------------- DECK --- */
+/*  */
+
+.deck {
+    position: relative;
+    padding-bottom: 34px;
+}
+
+/* ----------------------------------------------------------------------- CARD --- */
+/*  */
+
+.deck .card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    display: none;
+}
+.deck .card.display {
+    display: block;
+}
+
+/* -------------------------------------------------------------------- CONTROL --- */
+/*  */
+
+.deck .control {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: flex;
+    width: 100%;
+    margin-top: -17px;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+.deck .control a {
+    display: flex;
+    width: 32px;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+    background-color: $color_yellow;
+    cursor: pointer;
+}
+.deck .control a::before {
+    display: block;
+    width: 16px;
+    height: 16px;
+    content: '';
+    background-image: url('../gfx/control.png');
+    background-position: inherit;
+    background-size: 300% 100%;
+}
+.deck .control .prev {
+    background-position: left;
+}
+.deck .control .next {
+    background-position: right;
+}
+
+/* ------------------------------------------------------------------------ DOT --- */
+/*  */
+
+/* idk what to call this - don't hate */
+/* also should be refactored to share with gallery */
+
+.deck .dot {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    display: flex;
+    transform: translateX(-50%);
+}
+.deck .dot a {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: $color_primary;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.5;
+}
+.deck .dot a:not(:last-child) {
+    margin-right: 10px;
+}
+.deck .dot a.active {
+    opacity: 1;
+}

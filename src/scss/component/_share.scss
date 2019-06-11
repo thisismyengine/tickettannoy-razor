@@ -1,0 +1,43 @@
+/* //////////////////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////////// SHARE /// */
+/* //////////////////////////////////////////////////////////////////////////////// */
+
+/* ---------------------------------------------------------------------- SHARE --- */
+/* links to share networks for sharing */
+
+.share { 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 92px;
+    flex-wrap: wrap;
+}
+.share::before {
+    flex-basis: 100%;
+    content: 'Share on:';
+    font-family: $family_display;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+.share a {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-image: url('../gfx/social.png');
+    background-size: 500% 300%;
+    background-repeat: no-repeat;
+}
+.share a.instagram { background-position: top left; }
+.share a.facebook { background-position: top; }
+.share a.twitter { background-position: top right; }
+@media (min-width: $breakpoint_4 + 1px) {
+    
+}
+@media (max-width: $breakpoint_4) {
+    header .share a.instagram { background-position: bottom left; }
+    header .share a.facebook { background-position: bottom; }
+    header .share a.twitter { background-position: bottom right; }
+}
+
+

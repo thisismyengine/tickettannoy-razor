@@ -1,0 +1,12 @@
+{
+    "devDependencies": {
+        "gulp": "^4.0.1",
+        "gulp-autoprefixer": "^6.1.0",
+        "gulp-livereload": "^4.0.1",
+        "gulp-rename": "^1.4.0",
+        "gulp-sass": "^4.0.2",
+        "gulp-sourcemaps": "^2.6.5",
+        "log": "^6.0.0",
+        "log-node": "^7.0.0"
+    }
+}

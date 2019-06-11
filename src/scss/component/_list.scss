@@ -1,0 +1,125 @@
+/* //////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////// LIST /// */
+/* //////////////////////////////////////////////////////////////////////////////// */
+
+/* ----------------------------------------------------------------------- LIST --- */
+/* container for event lists */
+
+section.list {
+    position: relative;
+    margin: 0 -12px 80px -12px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start; 
+}
+@media (max-width: $breakpoint_5) {
+    section.list {
+        margin-left: -8px;
+        margin-right: -8px;
+    }
+}
+
+/* ---------------------------------------------------------------------- TITLE --- */
+/* list label */
+
+section.list[data-type]::before {
+    content: attr(data-type);
+    position: absolute;
+    top: 0;
+    left: 0;
+    writing-mode: vertical-rl;
+    text-transform: uppercase;
+    transform: translateX(-100%);
+    opacity: 1;
+    transition: opacity 200ms;
+}
+section.list[data-type][data-value]::before { content: attr(data-type) ' (' attr(data-value) ')'; }
+@media (max-width: $breakpoint_4) {
+    section.list[data-type]::before { opacity: 0; }
+}
+
+
+/* -------------------------------------------------------------------- ARTICLE --- */
+/* event andnews items */
+
+section.list article {
+    height: auto;
+    margin: 40px 12px 0 12px;
+}
+section.list article.news { width: calc(50% - 24px); }
+section.list article.news:nth-child(6n + 2),
+section.list article.news:nth-child(6n + 3),
+section.list article.news:nth-child(6n + 5),
+section.list article.news:nth-child(6n + 6) {
+    width: calc(((1/3) * 100%) - 24px); 
+    min-width: 408px;
+}
+section.list article.news:nth-child(6n + 2) { margin-left: auto; }
+section.list article.news:nth-child(6n + 5) { margin-left: auto; }
+
+@media (min-width: $breakpoint_1 + 115px) {
+    section.list article:not(.news) { width: calc(((1/6) * 100%) - 24px); }
+    section.list:nth-of-type(2n + 1) article:not(.news):nth-of-type(12n + 1),
+    section.list:nth-of-type(2n + 1) article:not(.news):nth-of-type(12n + 3),
+    section.list:nth-of-type(2n + 1) article:not(.news):nth-of-type(12n + 5),
+    section.list:nth-of-type(2n + 1) article:not(.news):nth-of-type(12n + 8),
+    section.list:nth-of-type(2n + 1) article:not(.news):nth-of-type(12n + 11),
+    section.list:nth-of-type(2n + 1) article:not(.news):nth-of-type(12n + 12),
+    section.list:nth-of-type(2n) article:not(.news):nth-of-type(4n + 1),
+    section.list:nth-of-type(2n) article:not(.news):nth-of-type(4n + 4) { width: calc(((1/3) * 100%) - 24px); }
+}
+@media (min-width: $breakpoint_3 + 1px) and (max-width: $breakpoint_1 + 113px), (width: $breakpoint_1 + 114px) {
+    section.list article:not(.news) { width: 192px; }
+    section.list:nth-of-type(2n + 1) article:not(.news):nth-of-type(12n + 1),
+    section.list:nth-of-type(2n + 1) article:not(.news):nth-of-type(12n + 3),
+    section.list:nth-of-type(2n + 1) article:not(.news):nth-of-type(12n + 5),
+    section.list:nth-of-type(2n + 1) article:not(.news):nth-of-type(12n + 8),
+    section.list:nth-of-type(2n + 1) article:not(.news):nth-of-type(12n + 11),
+    section.list:nth-of-type(2n + 1) article:not(.news):nth-of-type(12n + 12),
+    section.list:nth-of-type(2n) article:not(.news):nth-of-type(4n + 1),
+    section.list:nth-of-type(2n) article:not(.news):nth-of-type(4n + 4) { width: calc(50% - 240px); }
+}
+@media (min-width: $breakpoint_3 + 1px) {
+    section.list article:not(.news):nth-of-type(-n + 4) { margin-top: 0; }
+    section.list article.news:nth-of-type(-n + 2) { margin-top: 0; }
+}
+@media (max-width: $breakpoint_3) {
+    section.list article.news:nth-child(6n + 2),
+    section.list article.news:nth-child(6n + 3),
+    section.list article.news:nth-child(6n + 5),
+    section.list article.news:nth-child(6n + 6) {
+        width: calc(50% - 24px);
+        min-width: 0;
+    }
+    section.list article.news:nth-child(6n + 3) { margin-left: 12px; }
+}
+@media (min-width: $breakpoint_5 + 1px) and (max-width: $breakpoint_3) {
+    section.list article:not(.news):nth-of-type(-n + 3) { margin-top: 0; }
+    section.list article:not(.news) { width: calc(((1/3) * 100%) - 24px);  }
+    section.list article:not(.news):nth-of-type(4):last-child { display: none; }
+}
+@media (max-width: $breakpoint_5) {
+    section.list article:not(.news) { margin: 16px 8px 0 8px; }
+    section.list article:not(.news):nth-of-type(-n + 2) { margin-top: 0; }
+    section.list article.news {
+        width: calc(100% - 16px) !important;
+        margin: 16px 8px 0 8px;
+    }
+}
+@media (min-width: $breakpoint_6 + 1px) and  (max-width: $breakpoint_5 - 1px), (width: $breakpoint_5) {
+    section.list article:not(.news) { width: calc(((2/3) * 100%) - 16px); }
+    section.list article:not(.news):nth-of-type(4n + 2),
+    section.list article:not(.news):nth-of-type(4n + 3) { width: calc(((1/3) * 100%) - 16px); }
+}
+@media (min-width: $breakpoint_6 - 79px) and  (max-width: $breakpoint_6 - 1px), (width: $breakpoint_6) {
+    section.list article:not(.news) { width: calc(100% - 168px); }
+    section.list article:not(.news):nth-of-type(4n + 2),
+    section.list article:not(.news):nth-of-type(4n + 3) { width: 136px; }
+}
+@media (max-width: $breakpoint_6 - 80px) {
+    section.list article:not(.news) { width: calc(50% - 16px); }
+}
+ 
+

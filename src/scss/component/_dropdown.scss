@@ -1,0 +1,196 @@
+/* //////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////// DROPDOWN /// */
+/* //////////////////////////////////////////////////////////////////////////////// */
+
+/* ------------------------------------------------------------------- DROPDOWN --- */
+/*  */
+
+.dropdown {
+    position: relative;
+    z-index: 4;
+    display: flex;
+    width: 100%;
+    height: 32px;
+    padding: 1px 1em 0 1em;
+    align-items: center;
+    justify-content: flex-start;
+    color: $color_dark;
+    font-size: 14px;
+    background-color: $color_light;
+    border-radius: 16px;
+    cursor: pointer;
+}
+.dropdown::before {
+    width: calc(100% - 24px);
+    overflow: hidden;
+    line-height: 32px;
+    letter-spacing: 0.03em;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+.dropdown[data-placeholder]::before {
+    content: attr(data-placeholder);
+}
+.dropdown[data-value]::before {
+    content: attr(data-value);
+}
+.dropdown::after {
+    position: absolute;
+    top: 13px;
+    right: 16px;
+    width: 12px;
+    height: 6px;
+    content: '';
+    background-image: url('../gfx/dropdown.png');
+    background-position: top;
+    background-size: 100% 300%;
+    pointer-events: none;
+}
+.dropdown.active {
+    z-index: 9;
+    color: $color_light;
+    background-color: $color_dark;
+}
+.dropdown.active::after {
+    background-position: bottom;
+}
+
+/* ----------------------------------------------------------------------- AREA --- */
+/*  */
+
+.dropdown .area {
+    position: absolute;
+    top: 100%;
+    left: calc(100% - 22px);
+    display: none;
+    padding: 16px;
+    margin-top: 16px;
+    background-color: $color_light;
+    border-radius: 16px;
+    transform: translateX(-50%);
+    cursor: initial;
+}
+@media (max-width: $breakpoint_3) {
+    .dropdown .area {
+        left: 50%;
+    }
+}
+.dropdown .area::before {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    content: '';
+    border: solid transparent;
+    border-color: rgba($color_light, 0);
+    border-bottom-color: $color_light;
+    border-width: 6px;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+.dropdown.active .area {
+    display: block;
+}
+
+/* ---------------------------------------------------------------------- VALUE --- */
+.dropdown .area .value {
+    display: block;
+    width: 136px;
+    height: 40px;
+    padding: 1px 1em 0 1em;
+    color: $color_dark;
+    font-family: $family_display;
+    font-size: 16px;
+    line-height: 40px;
+    letter-spacing: 0.03em;
+    background-color: white;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.dropdown .area .value:not(:last-child) {
+    margin-bottom: 10px;
+}
+.dropdown .area .value:hover:not(.active) {
+    color: $color_primary;
+}
+.dropdown .area .value.active {
+    background-color: $color_primary;
+}
+
+
+/* ----------------------------------------------------------------------- DATE --- */
+.dropdown .area.date {
+    padding: 24px;
+    border-radius: 16px;
+}
+
+/* ------------------------------------------------------------------- LOCATION --- */
+.dropdown .area.location {
+    padding: 16px;
+    padding-bottom: 10px;
+    border-radius: 16px;
+
+    column-count: 3;
+    column-gap: 10px;
+}
+.dropdown .area.location .select {
+    position: relative;
+    width: 136px;
+    height: 40px;
+    margin-bottom: 10px;
+
+    break-after: always;
+}
+.dropdown .area.location .select::after {
+    position: absolute;
+    top: 17px;
+    right: 16px;
+    width: 12px;
+    height: 6px;
+    content: '';
+    background-image: url('../gfx/dropdown.png');
+    background-position: top;
+    background-size: 100% 300%;
+    pointer-events: none;
+}
+.dropdown .area.location select {
+    background-image: none;
+}
+.dropdown .area.location select::after {
+    content: none;
+}
+.dropdown .area.location select {
+    width: 100%;
+    height: 100%;
+    padding: 1px 1em 0 1em;
+    color: $color_dark;
+    font-family: $family_display;
+    font-size: 16px;
+    line-height: 40px;
+    letter-spacing: 0.03em;
+    background-color: white;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.dropdown .area.location .value:nth-child(8) {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 60px;
+    line-height: 140px;
+    background-color: transparent;
+    pointer-events: none;
+}
+.dropdown .area.location .value:nth-child(8)::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 40px;
+    margin-top: 50px;
+    content: '';
+    background-color: white;
+    pointer-events: all;
+}

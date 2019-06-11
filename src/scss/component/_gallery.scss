@@ -1,0 +1,171 @@
+/* //////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////// GALLERY /// */
+/* //////////////////////////////////////////////////////////////////////////////// */
+
+/* -------------------------------------------------------------------- GALLERY --- */
+/* carousel of media or other objects */
+
+section.gallery {
+    position: relative;
+    
+    height: auto;
+    min-height: 500px;
+    padding: 32px 0;
+    margin: 0 -12px;
+    margin-bottom: 40px;
+    background-color: white;
+    @include background();
+}
+
+/* ---------------------------------------------------------------------- TITLE --- */
+/* list label */
+
+section.gallery[data-type]::after {
+    position: absolute;
+    top: 32px;
+    left: -24px;
+    content: attr(data-type);
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+}
+
+/* ----------------------------------------------------------------------- CARD --- */
+/*  */
+section.gallery .card {
+    display: none;
+    align-items: flex-start;
+}
+section.gallery .card.display {
+    display: flex;
+}
+@media (max-width: $breakpoint_4) {
+    section.gallery .card.display {
+        flex-wrap: wrap;
+    }
+}
+
+/* ---------------------------------------------------------------------- MEDIA --- */
+/*  */
+
+section.gallery .media {
+    width: calc(50% - 24px);
+    margin: 0 12px;
+}
+@media (max-width: $breakpoint_4) {
+    section.gallery .media {
+        width: calc(100% - 24px);
+        margin-bottom: 24px;
+    }
+}
+section.gallery .media::before {
+    display: block;
+    padding-top: 100%;
+    content: '';
+}
+section.gallery .media::after {
+    position: absolute;
+    z-index: 2;
+    content: '';
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 12px;
+}
+@media (max-width: $breakpoint_4) {
+    section.gallery .media::after { height: 8px; }
+}
+body.category_club section.gallery .media::after { background-color: $color_yellow; }
+body.category_culture section.gallery .media::after { background-color: $color_green; }
+body.category_festival section.gallery .media::after { background-color: $color_blue; }
+
+/* -------------------------------------------------------------------- CONTENT --- */
+/*  */
+
+section.gallery .content {
+    width: calc(50% - 24px);
+    margin: 0 12px;
+}
+@media (max-width: $breakpoint_4) {
+    section.gallery .content {
+        width: calc(100% - 24px);
+    }
+}
+section.gallery .content h2 {
+    width: 50%;
+    margin-bottom: 12px;
+}
+@media (max-width: $breakpoint_4) {
+    section.gallery .content h2 {
+        width: 100%;
+    }
+}
+section.gallery .content time,
+section.gallery .content .type {
+    font-size: 28px;
+    line-height: 32px;
+}
+section.gallery .content .type {
+    margin-bottom: 24px;
+    color: $color_grey;
+    text-transform: uppercase;
+}
+section.gallery .content p,
+section.gallery .content .more {
+    font-family: $family_display;
+    font-size: 18px;
+    line-height: 22px;
+}
+section.gallery .content p {
+    width: 75%;
+    margin-bottom: 24px;
+}
+@media (max-width: $breakpoint_4) {
+    section.gallery .content p {
+        width: 100%;
+    }
+}
+section.gallery .content .more {
+    display: block;
+    margin-bottom: 64px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+section.gallery .content .button {
+    display: inline-block;
+}
+body.category_club section.gallery .content .button { background-color: $color_yellow; }
+body.category_culture section.gallery .content .button { background-color: $color_green; }
+body.category_festival section.gallery .content .button { background-color: $color_blue; }
+
+/* ------------------------------------------------------------------------ DOT --- */
+/*  */
+
+/* idk what to call this - don't hate */
+
+section.gallery .dot {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-right: 12px;
+    transform: translateY(-50%);
+}
+@media (max-width: $breakpoint_4) {
+    section.gallery .dot {
+        display: none;
+    }
+}
+section.gallery .dot a {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: $color_primary;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.5;
+}
+section.gallery .dot a:not(:last-child) {
+    margin-bottom: 10px;
+}
+section.gallery .dot a.active {
+    opacity: 1;
+}

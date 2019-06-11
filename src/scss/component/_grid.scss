@@ -1,0 +1,63 @@
+/* //////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////// LIST /// */
+/* //////////////////////////////////////////////////////////////////////////////// */
+
+/* ----------------------------------------------------------------------- LIST --- */
+/* container for event lists */
+
+section.grid {
+    position: relative;
+    margin: 0 -12px 80px -12px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start; 
+}
+@media (max-width: $breakpoint_5) {
+    section.grid {
+        margin-left: -8px;
+        margin-right: -8px;
+    }
+}
+
+/* ---------------------------------------------------------------------- TITLE --- */
+/* grid label */
+
+section.grid[data-type]::before {
+    content: attr(data-type);
+    position: absolute;
+    top: 0;
+    left: 0;
+    writing-mode: vertical-rl;
+    text-transform: uppercase;
+    transform: translateX(-100%);
+    opacity: 1;
+    transition: opacity 200ms;
+}
+section.grid[data-type][data-value]::before { content: attr(data-type) ' (' attr(data-value) ')'; }
+@media (max-width: $breakpoint_4) {
+    section.grid[data-type]::before { opacity: 0; }
+}
+
+
+/* -------------------------------------------------------------------- ARTICLE --- */
+/* event and news items */
+
+section.grid article {
+    height: auto;
+    margin: 40px 12px 0 12px;
+}
+section.grid article { width: calc(20% - 24px); }
+@media (max-width: $breakpoint_3) {
+    section.grid article { width: calc(25% - 24px); }
+}
+@media (max-width: $breakpoint_4) {
+    section.grid article { width: calc(33.333% - 24px); }
+}
+@media (max-width: $breakpoint_5) {
+    section.grid article { width: calc(50% - 24px); }
+}
+@media (max-width: $breakpoint_6) {
+    section.grid article { width: calc(100% - 24px); }
+}

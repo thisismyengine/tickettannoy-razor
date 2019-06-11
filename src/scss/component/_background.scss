@@ -1,0 +1,24 @@
+/* //////////////////////////////////////////////////////////////////////////////// */
+/* ///////////////////////////////////////////////////////////////// BACKGROUND /// */
+/* //////////////////////////////////////////////////////////////////////////////// */
+
+/* ----------------------------------------------------------------- BACKGROUND --- */
+/* gradient background layer */
+
+.background {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 100%;
+    width: 100vw;
+    transform: translateX(-50%);
+    background-image: linear-gradient(60deg, #dcff55, #98ff54, );
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: hue 20s ease infinite;
+    opacity: 0.25;
+}
+
+

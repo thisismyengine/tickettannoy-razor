@@ -1,0 +1,230 @@
+/* //////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////// DATE /// */
+/* //////////////////////////////////////////////////////////////////////////////// */
+
+/* ----------------------------------------------------------------------- DATE --- */
+/* date picker control */
+
+.datepicker {
+    // width: 288px;
+    font-family: $family_display;
+    letter-spacing: 0.03em;
+}
+
+/* -------------------------------------------------------------------- CURRENT --- */
+/* */
+
+.datepicker .current {
+    margin-bottom: 16px;
+    color: $color_dark;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* --------------------------------------------------------------------- PICKER --- */
+/* */
+
+.datepicker > div:not(.current) {
+    position: relative;
+    padding: 0 24px;
+}
+
+/* ----------------------------------------------------------------- ROW / VIEW --- */
+/* */
+
+.datepicker .row,
+.datepicker .view {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+.datepicker .row a,
+.datepicker .view a {
+    width: 36px;
+    height: 28px;
+    line-height: 28px;
+}
+
+/* ------------------------------------------------------------------------ ROW --- */
+/* */
+
+.datepicker .row {
+    color: $color_dark;
+    font-size: 14px;
+}
+
+/* ----------------------------------------------------------------------- VIEW --- */
+/* */
+
+.datepicker .view {
+    flex-wrap: wrap;
+    font-size: 13px;
+}
+.datepicker .view a {
+    position: relative;
+    color: $color_grey;
+    cursor: pointer;
+}
+.datepicker .view a::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    display: block;
+    width: 28px;
+    height: 28px;
+    margin-top: -1px;
+    content: '';
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+.datepicker .view a.today {
+    color: $color_dark;
+}
+.datepicker .view a.today::before {
+    background-color: $color_highlight;
+}
+.datepicker .view a.active {
+    color: $color_dark;
+}
+body.category_club .datepicker .view a.active::before {
+    background-color: $color_yellow;
+}
+body.category_culture .datepicker .view a.active::before {
+    background-color: $color_green;
+}
+body.category_festival .datepicker .view a.active::before {
+    background-color: $color_blue;
+}
+.datepicker .view a.muted {
+    color: $color_dark;
+    opacity: 0.15;
+}
+
+/* -------------------------------------------------------------------- CONTROL --- */
+/* */
+
+.datepicker .control {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+.datepicker .control a {
+    display: block;
+    width: 12px;
+    height: 22px;
+    background-image: url('../gfx/datepicker.png');
+    background-repeat: no-repeat;
+    background-size: 300% 100%;
+    cursor: pointer;
+    pointer-events: all;
+}
+.datepicker .control .prev {
+    background-position: left;
+}
+.datepicker .control .next {
+    background-position: right;
+}
+
+
+/* JB */
+/*
+.datepicker {
+    display: flex;
+    width: 300px;
+    padding: 24px 32px;
+    flex-flow: column;
+    justify-content: center;
+    font-family: $family_display;
+    font-weight: normal;
+    user-select: none;
+}
+.datepicker a {
+    cursor: pointer;
+}
+.datepicker > div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    justify-content: center;
+}
+.datepicker .current {
+    margin-bottom: 16px;
+    color: $color_dark;
+}
+.datepicker .row,
+.datepicker .view {
+    display: flex;
+    width: 224px;
+}
+.datepicker .view {
+    flex-wrap: wrap;
+}
+.datepicker .row a,
+.datepicker .view a {
+    width: 32px;
+    height: 24px;
+    font-size: 12px;
+    text-align: center;
+}
+.datepicker .row a {
+    color: $color_dark;
+    font-weight: bold;
+}
+.datepicker .view a {
+    position: relative;
+    color: $color_grey;
+    line-height: 24px;
+}
+.datepicker .view a::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    display: block;
+    width: 24px;
+    height: 24px;
+    content: '';
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+.datepicker .view a.muted {
+    opacity: 0.25;
+}
+.datepicker .view a.today {
+    color: $color_dark;
+}
+.datepicker .view a.today::before {
+    background-color: $color_highlight;
+}
+.datepicker .view a.active {
+    color: $color_dark;
+}
+.datepicker .view a.active::before {
+    background-color: $color_yellow;
+}
+.datepicker .control {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: flex;
+    width: calc(100% + 48px);
+    margin-left: -24px;
+    justify-content: space-between;
+    transform: translate(0, -50%);
+    pointer-events: none;
+}
+.datepicker .control a {
+    width: 24px;
+    height: 24px;
+    background-color: grey;
+    pointer-events: all;
+}
+*/
+/* JB */

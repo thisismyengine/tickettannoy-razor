@@ -1,0 +1,83 @@
+/* //////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////// FEATURE /// */
+/* //////////////////////////////////////////////////////////////////////////////// */
+
+/* -------------------------------------------------------------------- FEATURE --- */
+/* homepage feature item */
+
+section.feature {
+    position: relative;
+    margin: 0 -12px 40px -12px;
+
+}
+@media (max-width: $breakpoint_5) {
+    section.feature {
+        margin-left: -8px;
+        margin-right: -8px;
+    }
+}
+
+/* ---------------------------------------------------------------------- TITLE --- */
+/* feature label */
+
+section.feature[data-type]::before {
+    content: attr(data-type);
+    position: absolute;
+    top: 0;
+    left: 0;
+    writing-mode: vertical-rl;
+    text-transform: uppercase;
+    transform: translateX(-100%);
+    opacity: 1;
+    transition: opacity 200ms;
+}
+section.feature[data-type][data-value]::before { content: attr(data-type) ' (' attr(data-value) ')'; }
+@media (max-width: $breakpoint_4) {
+    section.feature[data-type]::before { opacity: 0; }
+}
+
+
+/* -------------------------------------------------------------------- ARTICLE --- */
+/* event andnews items */
+
+section.feature article {
+    height: auto;
+    width: calc(100% - 24px);
+    margin: 0 12px;
+}
+section.feature article .media { 
+    padding-bottom: 50%;
+}
+section.feature article h3 { margin-right: 80px; }
+section.feature article a::after { bottom: 40px; }
+
+@media (min-width: $breakpoint_1 + 115px) {
+
+}
+@media (min-width: $breakpoint_3 + 1px) and (max-width: $breakpoint_1 + 113px), (width: $breakpoint_1 + 114px) {
+
+}
+@media (min-width: $breakpoint_3 + 1px) {
+    
+}
+@media (max-width: $breakpoint_3) {
+    section.feature article .media { 
+        padding-bottom: unset;
+        height: 420px;
+    }
+}
+@media (min-width: $breakpoint_5 + 1px) and (max-width: $breakpoint_3) {
+
+}
+
+@media (min-width: $breakpoint_6 + 1px) and  (max-width: $breakpoint_5 - 1px), (width: $breakpoint_5) {
+
+}
+@media (min-width: $breakpoint_6 - 79px) and  (max-width: $breakpoint_6 - 1px), (width: $breakpoint_6) {
+
+}
+@media (max-width: $breakpoint_6 - 80px) {
+
+}
+
+

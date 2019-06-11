@@ -1,0 +1,623 @@
+/* //////////////////////////////////////////////////////////////////////////////// */
+/* ///////////////////////////////////////////////////////////////////// HEADER /// */
+/* //////////////////////////////////////////////////////////////////////////////// */
+
+/* --------------------------------------------------------------------- HEADER --- */
+/* top header */
+
+body > header {
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    display: block;
+    background-color: white;
+    @include background();
+}
+@media (min-width: $breakpoint_4 + 1px) {
+    body > header { 
+        left: 50%;
+        transform: translateX(-50%);
+        height: 140px;
+		display: flex;
+		flex-direction: row;
+        justify-content: space-between;
+    }
+}
+@media (max-width: $breakpoint_4) {
+    body > header { 
+        left: 6.25vw;
+        height: 72px; 
+    }
+    body.category_club > header { background: $color_yellow; }
+    body.category_culture > header { background: $color_green; }
+    body.category_festival > header { background: $color_blue; }
+    body > header::after {
+        z-index: 3;
+        content: '';
+        position: absolute;
+        top: 0;
+        height: 0;
+        width: 100%;
+        background-color: inherit;
+        transition: height 400ms ease;
+    }
+    body.view_search > header::after { height: 72px; }
+}
+@media (max-width: $breakpoint_5) {
+    body > header { left: calc(50vw - 280px); }
+}
+@media (max-width: $breakpoint_5 - 20px) {
+    body > header { left: 30px; }
+}
+
+/* ----------------------------------------------------------------------- LOGO --- */
+/* ticket tannoy logo */
+
+header .logo {
+    @include nonselect();
+}
+@media (min-width: $breakpoint_4 + 1px) {
+    header .logo { margin-top: 16px; }
+}
+@media (max-width: $breakpoint_4) {
+    header .logo {
+        z-index: 2;
+		position: absolute;
+        top: 36px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* --------------------------------------------------------------------- TOGGLE --- */
+/* navigation toggle */
+
+header .toggle {
+    @include nonselect();
+}
+@media (min-width: $breakpoint_4 + 1px) {
+    header .toggle { display: none;  }
+    form.search .toggle.search {
+        position: relative;
+        display: block;
+        width: 16px;
+        height: 16px;
+        margin-right: auto;
+        margin-left: 92px;
+        background-image: url('../gfx/toggle.png');
+        background-size: 300% 100%;
+        background-position: right;
+        transition: margin-left 200ms ease, opacity 200ms ease;
+        cursor: pointer;
+        pointer-events: none;
+        opacity: 0;
+    }
+    body.status_resize form.search .toggle.search { transition-duration: 0s; }
+    form.search .toggle.search::before { 
+        z-index: -1;
+        content: '';
+        position: absolute;
+        top: -8px;
+        left: -8px;
+        width: 32px;
+        height: 32px;
+        opacity: 0;
+    }
+    body.view_search form.search .toggle.search { 
+        opacity: 1; 
+        pointer-events: all;
+        transition: margin-left 200ms ease, opacity 200ms ease 240ms;
+    }
+}
+@media (min-width: $breakpoint_4 + 1px) and (max-width: $breakpoint_2 + 86px) {
+    form.search .toggle.search { margin-left: 0; }
+}
+@media (max-width: $breakpoint_4) {
+    header .toggle {
+        z-index: 2;
+        position: absolute;
+        top: 36px;
+        transform: translateY(-50%);
+        display: block;
+        width: 20px;
+        height: 20px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        pointer-events: all;
+    }
+    header .toggle.nav,
+    form.search .toggle.search {
+        background-image: url('../gfx/toggle.png');
+        background-size: 300% 100%;
+    }
+    header .toggle.nav { background-position: left; }
+    header > .toggle.nav { left: 0; }
+    nav .toggle.nav { left: 6.25vw; }
+    form.search .toggle.search { 
+        left: 6.25vw;
+        background-position: right; 
+    }
+    header > .toggle.search,
+    nav .toggle.search {
+        background-image: url('../gfx/search.png');
+        background-size: 100% 300%;
+        background-position: top;
+    }
+    header > .toggle.search { right: 0; }
+    nav .toggle.search { right: 6.25vw; }
+}
+@media (max-width: $breakpoint_5) {
+    nav .toggle.nav,
+    form.search .toggle.search { left: calc(50vw - 280px); }
+    nav .toggle.search { right: calc(50vw - 280px); }
+}
+@media (max-width: $breakpoint_5 - 20px) {
+    nav .toggle.nav,
+    form.search .toggle.search { left: 30px; }
+    nav .toggle.search { right: 30px; }
+}
+
+/* --------------------------------------------------------------------- SEARCH --- */
+/* search input and associated buttons */
+
+header form.search {  }
+form.search input {
+	height: 32px;
+	border-top-left-radius: 16px;
+	border-bottom-left-radius: 16px;
+	padding: 1px 0.5em 0 1em;
+	font-size: 14px;
+	background-color: $color_light;
+}
+form.search button[type=submit] {
+	display: block;
+	width: 32px;
+	height: 32px;
+	border-top-right-radius: 16px;
+	border-bottom-right-radius: 16px;
+	cursor: pointer;
+}
+form.search button[type=submit]::after {
+	content: '';
+	position: absolute;
+	background-image: url('../gfx/search.png');
+	background-size: 100% 300%;
+	background-repeat: no-repeat;
+	pointer-events: none;
+}
+@media (min-width: $breakpoint_4 + 1px) {
+    header form.search {
+        z-index: 2;
+		position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+		margin: 0 auto;
+		margin-right: 116px;
+		transition: margin-right 200ms ease;
+		flex-grow: 1;
+		margin-left: 16px;
+        height: 80px;
+        max-width: 847px;
+    }
+	header form.search .toggle.search { display: block;  }
+	form.search input { 
+        width: 164px;
+        margin-left: 8px;
+        transition: width 200ms ease;
+    }
+    body.view_search form.search input { width: calc(100% - 56px); }
+    body.status_resize form.search input { transition-duration: 0; }
+	form.search button[type=submit] {
+        position: relative;
+        background-color: $color_light;
+    }
+    body.view_search form.search button[type=submit] { background-color: $color_secondary; }
+	form.search button[type=submit]::after { 
+        top: 8px;
+        right: 8px;
+        width: 16px;
+        height: 16px;
+        background-position: top; 
+    }
+}
+@media (min-width: $breakpoint_4 + 1px) and (max-width: $breakpoint_2 + 86px) {
+    header form.search { margin-right: 208px; }
+}
+@media (min-width: $breakpoint_4 + 1px) and (max-width: $breakpoint_4 + 10px) {
+    header form.search { transition-duration: 0; }
+}
+@media (max-width: $breakpoint_4) {
+    header form.search {
+        z-index: 6;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+	    clip: rect(auto 200vw auto -50vw);
+        transition: height 400ms ease;
+    }
+    body.status_resize header form.search { transition-duration: 0; }
+	body.view_search form.search { height: 72px; }
+	form.search input {
+        position: absolute;
+        top: 20px;
+        left: calc(6.25vw + 32px);
+        width: calc(87.5vw - 56px);
+		margin-left: auto;
+    }
+    form.search button[type=submit] {
+        position: absolute;
+        top: 20px;
+        right: calc(6.25vw - 8px);
+		background-color: $color_dark;
+    }
+	form.search button[type=submit]::after {
+        top: 6px;
+        right: 8px;
+        width: 20px;
+        height: 20px;
+        background-position: bottom;
+    }
+}
+@media (max-width: $breakpoint_5) {
+    form.search input {
+        left: calc(50vw - 248px);
+        width: 504px;
+    }
+    form.search button[type=submit] { right: calc(50vw - 288px); }
+}
+@media (max-width: $breakpoint_5 - 20px) {
+    form.search input {
+        left: 62px;
+        width: calc(100vw - 116px);
+    }
+    form.search button[type=submit] { right: 22px; }
+}
+
+/* ------------------------------------------------------------------------ NAV --- */
+/* navigation layer */
+
+header nav {  }
+@media (min-width: $breakpoint_4 + 1px) {
+    header nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+    header nav .area {
+		position: absolute;
+        top: 80px;
+        left: 0;
+        height: 60px;
+        width: 100%;
+        background-color: $color_nav; 
+		@include background();
+    }
+    header nav .logo { display: none; }
+}
+@media (max-width: $breakpoint_4) {
+    header nav {
+        z-index: 4;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background-color: $color_secondary;
+        clip: rect(auto 200vw auto -50vw);
+        transition: height 400ms ease;
+    }
+    header nav::before {
+        z-index: 3;
+        content: '';
+        position: absolute;
+        top: 0;
+        height: 0;
+        width: 100%;
+        background-color: inherit;
+        transition: height 400ms ease;
+    }
+    body.status_resize header nav,
+    body.status_resize header nav::before { transition-duration: 0; }
+    body.view_search header nav::before { height: 72px; }
+    body.view_nav nav { height: 100%; }
+    nav .area {
+        position: fixed;
+        top: 0;
+        left: calc(50vw - 98px);
+        width: 196px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #b5fdd8;
+    }
+    nav .area::before {
+        content: '';
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 72px;
+        margin-bottom: auto;
+        pointer-events: none;
+    }
+    nav .area::after {
+        z-index: 1;
+        content: '';
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 72px;
+        background-color: white;
+    }
+}
+
+/* ----------------------------------------------------------------------- USER --- */
+/* buttons for user functions */
+
+header section.user {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 196px;
+}
+header section.user a {
+    
+}
+@media (min-width: $breakpoint_4 + 1px) {
+    header section.user {
+        position: absolute;
+        top: -56px;
+        right: -92px;
+		transition: right 200ms ease;
+    }
+	header section.user a {
+		background-color: $color_primary;
+	}
+}
+@media (min-width: $breakpoint_4 + 1px) and (max-width: $breakpoint_2 + 86px) {
+    header section.user { right: 0; }
+}
+@media (max-width: $breakpoint_4) {
+    header section.user {
+        
+    }
+    header section.user a {
+        background-color: $color_contrast;
+    }
+}
+
+/*
+header nav.user {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+@media (min-width: $breakpoint_4 + 1px) {
+    header nav.user {
+        margin-right: -92px;
+        transition: margin-right 200ms ease;
+        align-items: center;
+        height: 80px;
+    }
+    header nav.user a { margin-left: 20px; }
+    header nav.user a:first-child { margin-left: 0; }
+}
+
+@media (min-width: $breakpoint_4 + 1px) and (max-width: $breakpoint_2 + 86px) {
+    header nav.user { margin-right: 0; }
+}
+
+
+@media (max-width: $breakpoint_4) {
+    header nav.user {
+        display: none;
+        order: 3;
+    }
+    body.nav_1 header nav.user { display: flex; }
+}
+*/
+
+/* -------------------------------------------------------------------- PRIMARY --- */
+/* main site navigation */
+
+header section.primary {
+    
+}
+header section.primary a {
+	position: relative;
+}
+header section.primary a::after { 
+	content: '';
+	z-index: -1;
+	position: absolute;
+	//bottom: 0.5px;
+	//left: -4px;
+	display: none;
+	//width: calc(100% + 8px);
+
+	// background-color: $color_secondary; 
+	background-color: $color_highlight;
+
+	//height: 5px;
+
+
+}
+
+header section.primary a.category_club::after { background-color: $color_yellow; }
+header section.primary a.category_culture::after { background-color: $color_green; }
+header section.primary a.category_festival::after { background-color: $color_blue; }
+header section.primary a.page_news::after { background-color: $color_primary; }
+
+header section.primary a.page_active::after {
+	bottom: 0;
+	left: -4px;
+	height: 100%;
+	width: calc(100% + 8px);
+	display: block;
+}
+
+
+
+@media (min-width: $breakpoint_4 + 1px) {
+    header section.primary {
+        height: 100%;
+        width: 80%;
+        max-width: 788px;
+        min-width: 630px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    header section.primary a {
+        font-size: 20px;
+        line-height: 1.2em;
+        color: $color_dark;
+        text-transform: uppercase;
+    }
+    header section.primary a:first-of-type { margin-left: 0;  }
+    
+    header section.primary a.page_active::after {
+        bottom: 0;
+        left: -4px;
+        height: 100%;
+        width: calc(100% + 8px);
+        display: block;
+    }
+    header section.primary a::hover::after { height: 3px; }
+}
+@media (min-width: $breakpoint_4 + 1px) and (max-width: $breakpoint_2) {
+    header section.primary a { font-size: 18px;  }
+}
+@media (min-width: $breakpoint_4 + 1px) and (max-width: $breakpoint_3) {
+    header section.primary a { font-size: 16px;  }
+}
+@media (max-width: $breakpoint_4) {
+    header section.primary {
+        
+    }
+    header section.primary {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        
+        
+        position: relative;
+        width: 100%;
+
+        //margin-bottom: 40px;
+        
+    }
+    header section.primary a {
+        position: relative;
+        font-size: 22px;
+        line-height: 32px;
+        color: $color_dark;
+        text-transform: uppercase;
+        
+    }
+    header section.primary a:last-of-type { display: none; }
+    
+    
+    
+    
+    
+    /*
+    header nav.main a::after { 
+    z-index: -1;
+    position: absolute;
+    bottom: 0.5px;
+    left: -4px;
+    display: block;
+    width: calc(100% + 8px);
+    
+    // background-color: $color_secondary; 
+    background-color: $color_highlight;
+    
+    
+}
+header nav.main a.category_club::after { background-color: $color_yellow; }
+header nav.main a.category_culture::after { background-color: $color_green; }
+header nav.main a.category_festival::after { background-color: $color_blue; }
+header nav.main a:hover::after,
+header nav.main a.active_1::after { 
+    content: '';
+    display: block; 
+}
+header nav.main a:hover::after { height: 3px; }
+header nav.main a.active_1::after { height: 28px; }
+    */
+    
+    
+}
+
+/* ------------------------------------------------------------------ SECONDARY --- */
+/* additional navigation links displayed in footer on desktop */
+
+header section.secondary {
+    
+}
+@media (min-width: $breakpoint_4 + 1px) {
+    header section.secondary { display: none; }
+}
+@media (max-width: $breakpoint_4) {
+    header section.secondary {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+        width: 100%;
+        margin: 5vh auto;
+    }
+    header section.secondary a {
+        font-size: 16px;
+        line-height: 24px;
+        color: $color_grey;
+        text-transform: uppercase;
+    }
+    header section.secondary a:hover { color: $color_dark; }
+}
+
+/*
+header nav.secondary {
+    
+}
+@media (min-width: $breakpoint_4 + 1px) {
+    header nav.secondary { display: none; }
+}
+@media (max-width: $breakpoint_4) {
+    header nav.secondary {
+        display: none;
+        order: 2;
+    }
+    body.nav_1 header nav.secondary { display: flex; }
+}
+*/
+
+/* --------------------------------------------------------------------- SOCIAL --- */
+/* links to social media channels */
+
+header section.social {  }
+@media (min-width: $breakpoint_4 + 1px) {
+    header section.social { display: none; }
+}
+@media (max-width: $breakpoint_4) {
+    header section.social {
+        position: relative;
+        z-index: 2;
+        margin-top: auto;
+        height: 72px;
+    }
+}
+
+

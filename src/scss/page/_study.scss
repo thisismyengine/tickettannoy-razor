@@ -1,0 +1,142 @@
+/* //////////////////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////////// STUDY /// */
+/* //////////////////////////////////////////////////////////////////////////////// */
+
+/* ---------------------------------------------------------------------- STUDY --- */
+/* study info */
+
+body.page_study {
+}
+
+/* -------------------------------------------------------------------- HEADING --- */
+/* */
+
+body.page_study h1 {
+    margin-bottom: 32px;
+    @media (max-width: $breakpoint_4) {
+        margin-bottom: 22px;
+    }
+}
+body.page_study h1 + h2 {
+    color: $color_dark;
+}
+body.page_study h2 {
+    margin-bottom: 22px;
+    color: $color_primary;
+    @media (max-width: $breakpoint_4) {
+        margin-bottom: 16px;
+    }
+}
+
+/* ----------------------------------------------------------------- TYPOGRAPHY --- */
+/* */
+
+body.page_study p,
+body.page_study li {
+    font-family: $family_display;
+    font-size: 18px;
+    line-height: 24px;
+    @media (max-width: $breakpoint_4) {
+        font-size: 16px;
+        line-height: 22px;
+    }
+}
+body.page_study li::before {
+    margin-right: 0.25em;
+    content: '\2014';
+}
+body.page_study p:not(:last-child),
+body.page_study ul:not(:last-child) {
+    margin-bottom: 18px;
+    @media (max-width: $breakpoint_4) {
+        margin-bottom: 16px;
+    }
+}
+
+/* -------------------------------------------------------------------- ARTICLE --- */
+/* */
+
+body.page_study article {
+    margin-bottom: 84px;
+    @media (min-width: ($breakpoint_3 + 1px)) {
+        max-width: calc(((2/3) * 100%) - 12px);
+    }
+    @media (max-width: $breakpoint_2) {
+        margin-bottom: 48px;
+    }
+}
+
+/* --------------------------------------------------------------------- CLIENT --- */
+/* */
+
+body.page_study .client:first-of-type {
+    margin-top: 64px;
+}
+body.page_study .client:not(:last-child) {
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid $color_grey;
+}
+body.page_study .client ul li:not(:last-child) {
+    margin-bottom: 8px;
+}
+
+/* ------------------------------------------------------------------------ CTA --- */
+/* */
+
+body.page_study .cta {
+    display: flex;
+    padding: 24px 36px;
+    margin: 60px 0;
+    align-items: center;
+    flex-basis: 100%;
+    background-color: white;
+    border-radius: 1000px;
+    @media (max-width: $breakpoint_4) {
+        margin: 32px 0;
+    }
+    @media (max-width: $breakpoint_4) {
+        display: block;
+        padding: 0;
+        background-color: transparent;
+        border: 0;
+    }
+}
+body.page_study .cta p {
+    margin-right: 16px;
+    margin-bottom: 0;
+    font-size: 32px;
+    line-height: 44px;
+    @media (max-width: $breakpoint_2) {
+        font-size: 22px;
+        line-height: 30px;
+    }
+    @media (max-width: $breakpoint_4) {
+        font-size: 18px;
+        line-height: 26px;
+    }
+}
+body.page_study .cta p span {
+    color: $color_grey;
+    @media (max-width: $breakpoint_3) {
+        display: block;
+    }
+}
+body.page_study .cta .button {
+    display: inline-block;
+    min-width: 160px;
+    margin-left: auto;
+    @media (max-width: $breakpoint_4) {
+        margin-top: 16px;
+    }
+}
+body.page_study section .cta {
+    margin-right: 36px;
+    margin-bottom: 0;
+    margin-left: 36px;
+}
+body.page_study section .cta:not(:last-child) {
+    @media (max-width: $breakpoint_4) {
+        margin-bottom: 8px;
+    }
+}

@@ -1,0 +1,41 @@
+/* //////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////// USER /// */
+/* //////////////////////////////////////////////////////////////////////////////// */
+
+/* ----------------------------------------------------------------------- USER --- */
+/* user admin views */
+
+body.page_user {
+}
+
+body.page_user form {
+    display: flex;
+    margin: 0 -12px;
+    flex-wrap: wrap;
+}
+body.page_user form > div {
+    width: calc(50% - 24px);
+    margin: 0 12px;
+}
+@media (max-width: $breakpoint_5) {
+    body.page_user form > div {
+        width: calc(100% - 24px);
+    }
+    body.page_user form > div:not(:last-child) {
+        margin-bottom: 24px;
+    }
+}
+body.page_user form a.register,
+body.page_user form a.forgot {
+    display: block;
+    margin: -6px 0 16px;
+    color: $color_primary;
+    font-size: 12px;
+    text-align: right;
+}
+body.page_user form a.register::before {
+    content: 'No account? Register now';
+}
+body.page_user form a.forgot::before {
+    content: 'Forgot password?';
+}
